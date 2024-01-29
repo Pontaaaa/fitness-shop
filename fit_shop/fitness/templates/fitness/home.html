@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Fitness Website</title>
     <!-- Add your CSS styles or link to an external stylesheet here -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
   </head>
 
   <body>
@@ -14,12 +18,57 @@
     </header>
 
     <main>
-      <!-- Add the main content of your homepage here -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img
+                src="{% static 'path/to/free_trial_image.jpg' %}"
+                class="card-img-top"
+                alt="Free Trial"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Free Trial</h5>
+                <p class="card-text">
+                  Experience our workouts with a free trial.
+                </p>
+                <a
+                  href="{% url 'subscribe_free_trial' %}"
+                  class="btn btn-primary"
+                  >Start Free Trial</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <img
+                src="{% static 'path/to/subscribe_now_image.jpg' %}"
+                class="card-img-top"
+                alt="Subscribe Now"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Subscribe Now</h5>
+                <p class="card-text">
+                  Unlock premium workouts by subscribing now.
+                </p>
+                <a href="{% url 'subscribe' %}" class="btn btn-primary"
+                  >Subscribe Now</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
       <!-- Add footer content here -->
     </footer>
+
     <!-- Add your JavaScript scripts or link to external scripts here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

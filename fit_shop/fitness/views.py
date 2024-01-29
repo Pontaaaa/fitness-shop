@@ -3,7 +3,8 @@ from .models import WorkoutPlan, Subscription, Rating
 
 
 def home(request):
-    return render(request, 'fitness/home.html')
+    plans = WorkoutPlan.objects.all()
+    return render(request, 'fitness/home.html', {'plans': plans})
 
 
 def workout_plans(request):
