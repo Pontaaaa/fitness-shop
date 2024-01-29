@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, workout_plans, subscribe, subscribe_free_trial, rate_workout_plan
+from .views import home, workout_plans, subscribe, subscribe_free_trial, rate_workout_plan, signup
 
 urlpatterns = [
     path('', home, name='home'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('rate/<int:plan_id>/', rate_workout_plan, name='rate_workout_plan'),
     path('subscribe-free-trial/', subscribe_free_trial,
          name='subscribe_free_trial'),
+    path('signup/', signup, name='signup'),
 ]
