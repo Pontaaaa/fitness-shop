@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'fitness',
 ]
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

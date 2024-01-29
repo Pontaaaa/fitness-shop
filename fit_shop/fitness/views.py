@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import WorkoutPlan, Subscription, Rating
 
 
@@ -30,3 +30,8 @@ def rate_workout_plan(request, plan_id):
         return render(request, 'fitness/rating_form.html', {'success': True})
     else:
         return render(request, 'fitness/rating_form.html', {'plan_id': plan_id})
+
+
+def subscribe_free_trial(request):
+    # Your logic for handling free trial subscription
+    return render(request, 'fitness/subscribe_free_trial.html')
