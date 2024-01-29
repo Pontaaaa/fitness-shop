@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<form method="post">
+  {% csrf_token %}
+  <!-- Other form fields go here -->
+  <input type="submit" value="Submit" />
+</form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rate Workout Plan</title>
+  </head>
+
+  <body>
+    <h1>Rate Workout Plan</h1>
+    <form method="post" action="{% url 'rate_workout_plan' plan_id %}">
+      {% csrf_token %}
+      <input type="number" name="rating" min="1" max="5" required />
+      <button type="submit">Rate</button>
+    </form>
+  </body>
+</html>

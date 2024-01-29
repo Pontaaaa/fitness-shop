@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-l@82lgtl#pdws*pyv93yblxnpz=*a@@gy7ul35cb33vj*4*y=_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-pontaaaa-fitness-shop-s04pk49ph2.us2.codeanyapp.com']
+
+ALLOWED_ORIGINS = ['http://*', 'https://*']
+CSRF_TRUSTED_ORGINS = ALLOWED_ORIGINS.copy()
 
 
 # Application definition
@@ -37,13 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fitness',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

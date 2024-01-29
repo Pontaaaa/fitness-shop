@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<form method="post">
+  {% csrf_token %}
+  <!-- Other form fields go here -->
+  <input type="submit" value="Submit" />
+</form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Plans</title>
+  </head>
+
+  <body>
+    <h1>Available Workout Plans</h1>
+    <ul>
+      {% for plan in plans %}
+      <li>{{ plan.title }} - {{ plan.description }} - ${{ plan.price }}</li>
+      <form method="post" action="{% url 'subscribe' plan.id %}">
+        {% csrf_token %}
+        <button type="submit">Subscribe</button>
+      </form>
+      <form method="post" action="{% url 'rate_workout_plan' plan.id %}">
+        {% csrf_token %}
+        <input type="number" name="rating" min="1" max="5" required />
+        <button type="submit">Rate</button>
+      </form>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
