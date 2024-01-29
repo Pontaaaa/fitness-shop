@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import WorkoutPlan, Subscription, Rating
 
 
 def home(request):
-    plans = WorkoutPlan.objects.all()
-    return render(request, 'fitness/home.html', {'plans': plans})
+    free_trial_plan = WorkoutPlan.objects.get(title='Free Trial')
+    premium_plan = WorkoutPlan.objects.get(title='Premium Plan')
+    return render(request, 'fitness/home.html', {'free_trial_plan': free_trial_plan, 'premium_plan': premium_plan})
 
 
 def workout_plans(request):

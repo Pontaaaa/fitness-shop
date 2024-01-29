@@ -34,18 +34,17 @@
                 alt="Free Trial"
               />
               <div class="card-body">
-                <h5 class="card-title">Free Trial</h5>
-                <p class="card-text">
-                  Experience our workouts with a free trial.
-                </p>
+                <h5 class="card-title">{{ free_trial_plan.title }}</h5>
+                <p class="card-text">{{ free_trial_plan.description }}</p>
                 <a
-                  href="{% url 'subscribe_free_trial' %}"
+                  href="{% url 'subscribe' plan_id=free_trial_plan.id %}"
                   class="btn btn-primary"
                   >Start Free Trial</a
                 >
               </div>
             </div>
           </div>
+
           <div class="col-md-6 mb-4">
             <div class="card">
               <img
@@ -54,11 +53,11 @@
                 alt="Subscribe Now"
               />
               <div class="card-body">
-                <h5 class="card-title">Subscribe Now</h5>
-                <p class="card-text">
-                  Unlock premium workouts by subscribing now.
-                </p>
-                <a href="{% url 'subscribe' %}" class="btn btn-primary"
+                <h5 class="card-title">{{ premium_plan.title }}</h5>
+                <p class="card-text">{{ premium_plan.description }}</p>
+                <a
+                  href="{% url 'subscribe' plan_id=premium_plan.id %}"
+                  class="btn btn-primary"
                   >Subscribe Now</a
                 >
               </div>
