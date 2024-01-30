@@ -21,7 +21,7 @@ def subscribe(request, plan_id):
         Subscription.objects.create(user=request.user, workout_plan=plan)
         return render(request, 'fitness/subscription_form.html', {'success': True})
     else:
-        return redirect('login')  # You may want to customize this redirection
+        return redirect('login')
 
 
 def rate_workout_plan(request, plan_id):
@@ -36,7 +36,6 @@ def rate_workout_plan(request, plan_id):
 
 
 def subscribe_free_trial(request):
-    # Your logic for handling free trial subscription
     return render(request, 'fitness/subscribe_free_trial.html')
 
 
@@ -45,8 +44,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log the user in after signup
-            # Redirect to the home page after successful signup
+            login(request, user) 
             return redirect('home')
     else:
         form = UserCreationForm()
