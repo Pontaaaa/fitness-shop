@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from .models import WorkoutPlan, Subscription, Rating
 
 
@@ -36,3 +38,17 @@ def rate_workout_plan(request, plan_id):
 def subscribe_free_trial(request):
     # Your logic for handling free trial subscription
     return render(request, 'fitness/subscribe_free_trial.html')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log the user in after signup
+            # Redirect to the home page after successful signup
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'fitness/signup.html', {'form': form})
